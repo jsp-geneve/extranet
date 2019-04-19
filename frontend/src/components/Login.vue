@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     onSubmit () {
-      this.$q.notify('Connecté !')
+      this.$q.notify('Connecté !') // TODO: Connecter au service d'authentification
     }
   }
 }

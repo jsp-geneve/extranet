@@ -21,16 +21,4 @@ const Router = new VueRouter({
   base: process.env.VUE_ROUTER_BASE
 })
 
-Router.beforeEach((to, from, next) => {
-  const publicPages = ['/login']
-  const authRequired = !publicPages.includes(to.path)
-  const loggedIn = false
-
-  if (authRequired && !loggedIn) {
-    return next('/login')
-  }
-
-  next()
-})
-
 export default Router
