@@ -1,6 +1,6 @@
 {
   "unit-jest": {
-    "runnerCommand": "jest"
+    "runnerCommand": "jest --notify"
   },
   "e2e-cypress": {
     "runnerCommand": "cypress run --config baseUrl=${serverUrl}"
