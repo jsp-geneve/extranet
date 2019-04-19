@@ -21,9 +21,9 @@ module.exports = function (ctx) {
     ],
 
     framework: {
-      // all: true, // --- includes everything; for dev only!
+      all: true, // --- includes everything; for dev only!
 
-      components: [
+      /* components: [
         'QLayout',
         'QHeader',
         'QDrawer',
@@ -46,7 +46,7 @@ module.exports = function (ctx) {
       // Quasar plugins
       plugins: [
         'Notify'
-      ]
+      ] */
 
       // iconSet: 'ionicons-v4'
       // lang: 'de' // Quasar language
@@ -56,7 +56,7 @@ module.exports = function (ctx) {
 
     build: {
       scopeHoisting: true,
-      // vueRouterMode: 'history',
+      vueRouterMode: 'history',
       // vueCompiler: true,
       // gzip: true,
       // analyze: true,
@@ -74,11 +74,11 @@ module.exports = function (ctx) {
     devServer: {
       // https: true,
       // port: 8080,
-      open: true // opens browser window automatically
+      open: false // opens browser window automatically
     },
 
-    // animations: 'all' --- includes all animations
-    animations: [],
+    animations: 'all',
+    // animations: [],
 
     ssr: {
       pwa: false

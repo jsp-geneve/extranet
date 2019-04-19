@@ -37,6 +37,8 @@ module.exports = {
     'arrow-parens': 'off',
     'one-var': 'off',
 
+    'comma-dangle': ["error", "only-multiline"],
+
     'import/first': 'off',
     'import/named': 'error',
     'import/namespace': 'error',
