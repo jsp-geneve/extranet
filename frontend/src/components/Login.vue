@@ -7,11 +7,13 @@
       filled
       v-model="email"
       label="Adresse mail"
+      color="grey-8"
     />
 
     <q-input
       v-model="password"
       filled
+      color="grey-8"
       :type="isPwd ? 'password' : 'text'"
       label="Mot de passe">
       <template v-slot:append>
@@ -23,7 +25,11 @@
       </template>
     </q-input>
 
-    <q-toggle v-model="remember_me" label="Se souvenir de moi sur cet appareil" />
+    <q-toggle
+      v-model="remember_me"
+      label="Se souvenir de moi sur cet appareil"
+      color="accent"
+    />
 
     <div class="flex flex-center">
       <q-btn label="se connecter" type="submit" color="accent"/>
