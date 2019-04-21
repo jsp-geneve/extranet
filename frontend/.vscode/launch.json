@@ -15,7 +15,8 @@
                 "webpack:///src/*": "${webRoot}/*",
                 "webpack:///*": "*",
                 "webpack:///./~/*": "${webRoot}/node_modules/*"
-            }
+            },
+            "userDataDir": false
         }
     ]
 }
