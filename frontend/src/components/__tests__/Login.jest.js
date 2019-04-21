@@ -18,12 +18,27 @@ describe('Login component', () => {
   const localVue = createLocalVue()
   localVue.use(Quasar, { components }) // , lang: langEn
 
-  const wrapper = mount(Login, {
-    localVue
-  })
-  // const vm = wrapper.vm
-
   it('passes the sanity check and creates a wrapper', () => {
+    const wrapper = mount(Login, {
+      localVue
+    })
+
     expect(wrapper.isVueInstance()).toBe(true)
+  })
+
+  it('called Apollo mutation in onSubmit() method', () => {
+    const mutate = jest.fn()
+    const wrapper = mount(Login, {
+      localVue,
+      mocks: {
+        $apollo: {
+          mutate,
+        },
+      },
+    })
+
+    wrapper.vm.onSubmit()
+
+    expect(mutate).toBeCalled()
   })
 })

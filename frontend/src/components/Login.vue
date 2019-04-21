@@ -41,6 +41,8 @@
 </style>
 
 <script>
+import gql from 'graphql-tag'
+
 export default {
   name: 'Login',
   data () {
@@ -52,8 +54,28 @@ export default {
     }
   },
   methods: {
-    onSubmit () {
-      this.$q.notify('Connecté !') // TODO: Connecter au service d'authentification
+    async onSubmit () {
+      const result = await this.$apollo.mutate({
+        mutation: gql`mutation (
+          $email: String!, 
+          $password: String!, 
+          $rememberMe: Boolean!
+        ) {
+          login(
+            email: $email, 
+            password: $password, 
+            rememberMe: $rememberMe
+          ) {
+            id
+          }
+        }`,
+        variables: {
+          email: this.email,
+          password: this.password,
+          rememberMe: this.remember_me,
+        },
+      })
+      console.log(result)
     }
   }
 }
