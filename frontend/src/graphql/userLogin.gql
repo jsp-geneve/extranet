@@ -1,0 +1,9 @@
+mutation userLogin ($email: String!, $password: String!, $rememberMe: Boolean!) {
+    userLogin(
+        email: $email, 
+        password: $password, 
+        rememberMe: $rememberMe
+    ) {
+        id
+    }
+}
