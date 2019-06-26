@@ -1,6 +1,6 @@
 <template>
   <q-form
-    @submit="onSubmit"
+    @submit="login"
     class="q-gutter-md"
   >
     <q-input
@@ -54,7 +54,7 @@ export default {
     }
   },
   methods: {
-    async onSubmit () {
+    async login () {
       const result = await this.$apollo.mutate({
         mutation: gql`mutation (
           $email: String!, 

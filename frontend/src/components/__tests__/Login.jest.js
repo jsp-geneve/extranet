@@ -26,7 +26,7 @@ describe('Login component', () => {
     expect(wrapper.isVueInstance()).toBe(true)
   })
 
-  it('called Apollo mutation in onSubmit() method', () => {
+  it('called Apollo mutation in login() method', async () => {
     const mutate = jest.fn()
     const wrapper = mount(Login, {
       localVue,
@@ -37,7 +37,7 @@ describe('Login component', () => {
       },
     })
 
-    wrapper.vm.onSubmit()
+    await wrapper.vm.login()
 
     expect(mutate).toBeCalled()
   })
