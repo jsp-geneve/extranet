@@ -1,6 +1,5 @@
 <template>
   <q-form
-    @submit="login"
     class="q-gutter-md"
   >
     <q-input
@@ -26,13 +25,32 @@
     </q-input>
 
     <q-toggle
-      v-model="remember_me"
+      v-model="rememberMe"
       label="Se souvenir de moi sur cet appareil"
       color="accent"
     />
 
     <div class="flex flex-center">
-      <q-btn label="se connecter" type="submit" color="accent"/>
+      <ApolloMutation
+        :mutation="query"
+        :variables="{
+          email,
+          password,
+          rememberMe
+        }"
+        @error="e => this.$q.notify(e)"
+      ><!-- TODO: better error handling -->
+        <template slot-scope="{ mutate: submitLogin, loading, /* error */ }">
+          <q-btn
+            :disabled="loading"
+            @click="submitLogin()"
+            label="se connecter"
+            type="submit"
+            color="accent"
+            id="foobar"
+          />
+        </template>
+      </ApolloMutation>
     </div>
   </q-form>
 </template>
@@ -50,21 +68,9 @@ export default {
       isPwd: true,
       email: null,
       password: null,
-      remember_me: false
+      rememberMe: false,
+      query: userLogin,
     }
   },
-  methods: {
-    async login () {
-      const result = await this.$apollo.mutate({
-        mutation: userLogin,
-        variables: {
-          email: this.email,
-          password: this.password,
-          rememberMe: this.remember_me,
-        },
-      }).catch(e => this.$q.notify(e))
-      console.log(result)
-    }
-  }
 }
 </script>
