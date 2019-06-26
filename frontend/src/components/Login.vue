@@ -74,7 +74,7 @@ export default {
           password: this.password,
           rememberMe: this.remember_me,
         },
-      })
+      }).catch(e => this.$q.notify(e))
       console.log(result)
     }
   }
