@@ -3,16 +3,9 @@
 
 import { mount, createLocalVue } from '@vue/test-utils'
 import Login from '../Login.vue'
-import * as All from 'quasar'
-const { Quasar } = All
+import { Quasar } from 'quasar'
 
-const components = Object.keys(All).reduce((object, key) => {
-  const val = All[key]
-  if (val && val.component && val.component.name != null) {
-    object[key] = val
-  }
-  return object
-}, {})
+import { components } from './helpers.js'
 
 describe('Login component', () => {
   const localVue = createLocalVue()
