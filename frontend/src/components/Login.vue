@@ -39,6 +39,7 @@
           rememberMe
         }"
         @error="e => this.$q.notify(e)"
+        @done="onDone"
       ><!-- TODO: better error handling -->
         <template slot-scope="{ mutate: submitLogin, loading, /* error */ }">
           <q-btn
@@ -60,6 +61,7 @@
 
 <script>
 import userLogin from '../graphql/userLogin.gql'
+import auth from '../services/auth'
 
 export default {
   name: 'Login',
@@ -68,9 +70,17 @@ export default {
       isPwd: true,
       email: null,
       password: null,
-      rememberMe: false,
+      rememberMe: false, // TODO: implement rememberMe
       query: userLogin,
     }
+  },
+  methods: {
+    onDone ( response ) {
+      const token = response.data.userLogin
+      this.$q.notify( `Connecté avec succès` )
+      auth.saveToken( token )
+      this.$router.push( this.$route.query.redirect )
+    },
   },
 }
 </script>

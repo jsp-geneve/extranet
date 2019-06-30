@@ -5,7 +5,11 @@ const routes = [
     children: [
       {
         path: '/login',
-        component: () => import('pages/Login.vue')
+        component: () => import( 'pages/Login.vue' ),
+        meta: {
+          public: true,
+          onlyWhenLoggedOut: true,
+        },
       },
       {
         path: '*',

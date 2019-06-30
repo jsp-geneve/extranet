@@ -3,7 +3,5 @@ mutation userLogin ($email: String!, $password: String!, $rememberMe: Boolean!) 
         email: $email, 
         password: $password, 
         rememberMe: $rememberMe
-    ) {
-        id
-    }
+    )
 }
