@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 import routes from './routes'
 
-Vue.use(VueRouter)
+Vue.use( VueRouter )
 
 /*
  * If not building with SSR mode, you can
@@ -18,7 +18,7 @@ const Router = new VueRouter({
   // quasar.conf.js -> build -> vueRouterMode
   // quasar.conf.js -> build -> publicPath
   mode: process.env.VUE_ROUTER_MODE,
-  base: process.env.VUE_ROUTER_BASE
+  base: process.env.VUE_ROUTER_BASE,
 })
 
 export default Router

@@ -1,7 +1,7 @@
 const routes = [
   {
     path: '/',
-    component: () => import('layouts/BaseLayout.vue'),
+    component: () => import( 'layouts/BaseLayout.vue' ),
     children: [
       {
         path: '/login',
@@ -13,10 +13,10 @@ const routes = [
       },
       {
         path: '*',
-        component: () => import('pages/Error404.vue')
-      }
-    ]
-  }
+        component: () => import( 'pages/Error404.vue' ),
+      },
+    ],
+  },
 ]
 
 export default routes

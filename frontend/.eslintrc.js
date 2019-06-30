@@ -37,7 +37,7 @@ module.exports = {
     'arrow-parens': 'off',
     'one-var': 'off',
 
-    'comma-dangle': ["error", "only-multiline"],
+    'comma-dangle': ["warn", "always-multiline"],
 
     'import/first': 'off',
     'import/named': 'error',
@@ -52,6 +52,15 @@ module.exports = {
     // allow console.log during development only
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     // allow debugger during development only
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+
+    'space-in-parens': [
+      "warn", 
+      "always", 
+      { 
+        "exceptions": ["{}", "[]"] 
+      }
+    ],
+    'no-trailing-spaces': 'warn',
   }
 }
