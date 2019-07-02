@@ -20,7 +20,7 @@
     "test:e2e:CI": "cypress run"
   },
   "dependencies": {
-    "@quasar/extras": "^1.1.2",
+    "@quasar/extras": "^1.1.4",
     "apollo-cache-inmemory": "^1.5.1",
     "apollo-client": "^2.5.1",
     "apollo-link": "^1.2.11",
@@ -29,14 +29,14 @@
     "eslint-plugin-cypress": "^2.2.1",
     "graphql": "^14.2.1",
     "graphql-tag": "^2.10.1",
-    "quasar": "^1.0.0-rc.4",
+    "quasar": "^1.0.0-rc.5",
     "vue-apollo": "^3.0.0-beta.28"
   },
   "devDependencies": {
-    "@quasar/app": "^1.0.0-rc.6",
-    "@quasar/quasar-app-extension-testing": "^1.0.0-rc.9",
+    "@quasar/app": "^1.0.0-rc.7",
+    "@quasar/quasar-app-extension-testing": "^1.0.0",
     "@quasar/quasar-app-extension-testing-e2e-cypress": "^1.0.0-beta.10",
-    "@quasar/quasar-app-extension-testing-unit-jest": "^1.0.0-beta.24",
+    "@quasar/quasar-app-extension-testing-unit-jest": "^1.0.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.10.0",
