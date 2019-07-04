@@ -1,0 +1,14 @@
+type User {
+  id: Int!
+  email: String!
+  rememberMe: Boolean
+}
+
+type Query {
+  user(id: ID): User
+  allUsers: [User]
+}
+
+type Mutation {
+  userLogin (email: String!, password: String!, rememberMe: Boolean): String
+}
