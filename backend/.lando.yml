@@ -1,0 +1,4 @@
+name: extranet
+recipe: laravel
+config:
+  webroot: public
