@@ -14,7 +14,6 @@
 type User {
   id: Int!
   email: String! @fake(type: email, locale:fr)
-  rememberMe: Boolean
 }
 
 type Query {
@@ -23,5 +22,5 @@ type Query {
 }
 
 type Mutation {
-  userLogin (email: String!, password: String!, rememberMe:Boolean): String @examples(values: ["eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InRlc3QiLCJpYXQiOjE1MTYyMzkwMjJ9.muNiiarivT4CGJKlYI4_WVV4RPbhBxt1l_R-um8u30w"])
+  userLogin (email: String!, password: String!): String @examples(values: ["eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InRlc3QiLCJpYXQiOjE1MTYyMzkwMjJ9.muNiiarivT4CGJKlYI4_WVV4RPbhBxt1l_R-um8u30w"])
 }

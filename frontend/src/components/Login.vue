@@ -24,19 +24,12 @@
       </template>
     </q-input>
 
-    <q-toggle
-      v-model="rememberMe"
-      label="Se souvenir de moi sur cet appareil"
-      color="accent"
-    />
-
     <div class="flex flex-center">
       <ApolloMutation
         :mutation="query"
         :variables="{
           email,
           password,
-          rememberMe
         }"
         @error="e => this.$q.notify(e)"
         @done="onDone"
@@ -70,7 +63,6 @@ export default {
       isPwd: true,
       email: null,
       password: null,
-      rememberMe: false, // TODO: implement rememberMe
       query: userLogin,
     }
   },

@@ -1,7 +1,6 @@
 type User {
   id: Int!
   email: String!
-  rememberMe: Boolean
 }
 
 type Query {
@@ -10,5 +9,5 @@ type Query {
 }
 
 type Mutation {
-  userLogin (email: String!, password: String!, rememberMe: Boolean): String
+  userLogin (email: String!, password: String!): String
 }
