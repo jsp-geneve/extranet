@@ -6,7 +6,7 @@ import VueApollo from 'vue-apollo'
 import auth from '../services/auth'
 
 const httpLink = new HttpLink({
-  uri: 'http://localhost:9002/graphql', // TODO: env variable
+  uri: 'http://localhost:32773/graphql', // TODO: env variable
 })
 
 // https://www.apollographql.com/docs/react/recipes/authentication/

@@ -53,7 +53,7 @@
 </style>
 
 <script>
-import userLogin from '../graphql/userLogin.gql'
+import { login } from '../graphql/auth.gql'
 import auth from '../services/auth'
 
 export default {
@@ -63,12 +63,12 @@ export default {
       isPwd: true,
       email: null,
       password: null,
-      query: userLogin,
+      query: login,
     }
   },
   methods: {
     onDone ( response ) {
-      const token = response.data.userLogin
+      const token = response.data.login.access_token
       this.$q.notify( `Connecté avec succès` )
       auth.saveToken( token )
       this.$router.push( this.$route.query.redirect )

@@ -1,4 +1,4 @@
-const TOKEN_KEY = 'auth_token'
+const TOKEN_KEY = 'access_token'
 
 export default {
   getToken () {
@@ -14,6 +14,6 @@ export default {
   },
 
   get isAuthenticated () {
-    return !!this.getToken()
+    return !!this.getToken() && this.getToken() !== 'undefined'
   },
 }
