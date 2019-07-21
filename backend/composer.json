@@ -16,7 +16,8 @@
         "laravel/tinker": "^1.0",
         "mll-lab/graphql-php-scalars": "^2.1",
         "mll-lab/laravel-graphql-playground": "^1.1",
-        "nuwave/lighthouse": "^3.7"
+        "nuwave/lighthouse": "^3.7",
+        "spatie/laravel-cors": "^1.5"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
