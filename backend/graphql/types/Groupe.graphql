@@ -1,0 +1,6 @@
+type Groupe {
+    id: ID!
+    nomCourt: String!
+    nomLong: String!
+    jeunesSapeurs: [JeuneSapeur]
+}

@@ -1,0 +1,40 @@
+type Adresse {
+    id: ID!
+	rue: String!
+	localite: String!
+	npa: String!
+	pays: String!
+    personnes: [Personne] @hasMany
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input AdresseInput {
+	rue: String
+	localite: String
+	npa: String
+	pays: String
+}
+
+extend type Query {
+    getAdresse(
+        id: ID! @eq
+    ): Adresse @find
+
+    allAdresses: [Adresse] @all
+}
+
+extend type Mutation {
+    createAdresse(
+        input: AdresseInput! @spread
+    ): Adresse @create
+
+    updateAdresse(
+        id: ID!
+        input: AdresseInput! @spread
+    ): Adresse @update
+
+    deleteAdresse(
+        id: ID!
+    ): Adresse @delete
+}

@@ -1,0 +1,34 @@
+type JeuneSapeur {
+    id: ID!
+	personne: Personne!
+	responsablesLegaux: [Personne!]!
+	groupe: Groupe!
+}
+
+input JeuneSapeurInput {
+	personne_id: Int
+	groupe_id: Int
+}
+
+extend type Query {
+    getJeuneSapeur(
+        id: ID! @eq
+    ): JeuneSapeur @find
+
+    allJeunesSapeurs: [JeuneSapeur] @all
+}
+
+extend type Mutation {
+    createJeuneSapeur(
+        input: JeuneSapeurInput! @spread
+    ): JeuneSapeur @create
+
+    updateJeuneSapeur(
+        id: ID!
+        input: JeuneSapeurInput! @spread
+    ): JeuneSapeur @update
+
+    deleteJeuneSapeur(
+        id: ID!
+    ): JeuneSapeur @delete
+}

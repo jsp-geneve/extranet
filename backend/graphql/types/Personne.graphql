@@ -1,0 +1,54 @@
+"""
+Une personne quelconque, sans lien avec son rôle dans l'association.
+"""
+type Personne {
+    id: ID!
+	prenom: String!
+	nom: String!
+	telephone: String
+	email: String
+	adresse: Adresse @belongsTo
+	naissance: Date
+	documentIdentite: String
+	anneeEntree: String
+	photo: String
+	groupeSanguin: String
+	assuranceMaladie: String
+	assuranceAccident: String
+	allergies: String
+	regimeAlimentaire: String
+	medicaments: String
+	publicationPhotosAutorisee: Boolean
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input PersonneInput {
+	prenom: String
+	nom: String
+	telephone: String
+	email: String
+	adresse_id: ID
+	naissance: Date
+	documentIdentite: String
+	anneeEntree: String
+	photo: String
+	groupeSanguin: String
+	assuranceMaladie: String
+	assuranceAccident: String
+	allergies: String
+	regimeAlimentaire: String
+	medicaments: String
+	publicationPhotosAutorisee: Boolean	
+}
+
+extend type Mutation {
+    createPersonne(input: PersonneInput! @spread): Personne @create
+    updatePersonne(id: ID!, input: PersonneInput! @spread): Personne @update
+    deletePersonne(id: ID!): Personne @delete
+}
+
+extend type Query {
+    getPersonne(id: ID! @eq): Personne @find
+    allPersonnes: [Personne] @all
+}

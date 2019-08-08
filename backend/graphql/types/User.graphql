@@ -1,0 +1,38 @@
+""" 
+Un compte utilisateur ayant accès à l'application.
+"""
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input UserInput {
+    name: String!
+    email: String!
+    password: String! @bcrypt
+}
+
+extend type Query {
+    allUsers: [User] @all
+    getUser(id: ID! @eq): User @find(model: "App\\User")
+    me: User @auth @middleware(checks: ["auth:api"])
+}
+
+extend type Mutation {
+    createUser(
+        input: UserInput! @spread
+    ): User @create
+
+    updateUser(
+        id: ID!,
+        input: UserInput! @spread
+    ): User @update
+
+    deleteUser(
+        id: ID!
+    ): User @delete
+}
