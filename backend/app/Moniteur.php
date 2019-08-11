@@ -35,6 +35,6 @@ class Moniteur extends Model
      */
     public function fonctions(): BelongsToMany
     {
-        return $this->belongsToMany('App\Fonction');
+        return $this->belongsToMany('App\Fonction')->withTimestamps();
     }
 }

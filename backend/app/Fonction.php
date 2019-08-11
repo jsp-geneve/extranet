@@ -21,6 +21,6 @@ class Fonction extends Model
      */
     public function moniteurs(): BelongsToMany
     {
-        return $this->belongsToMany('App\Moniteur');
+        return $this->belongsToMany('App\Moniteur')->withTimestamps();
     }
 }

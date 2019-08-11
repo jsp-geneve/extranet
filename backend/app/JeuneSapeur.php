@@ -53,6 +53,6 @@ class JeuneSapeur extends Model
      */
     public function responsablesLegaux(): BelongsToMany
     {
-        return $this->belongsToMany('App\Personne', 'responsables_legaux', 'jeune_sapeur_id', 'personne_id');
+        return $this->belongsToMany('App\Personne', 'responsables_legaux', 'jeune_sapeur_id', 'personne_id')->withTimestamps();
     }
 }
