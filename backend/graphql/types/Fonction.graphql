@@ -1,0 +1,34 @@
+type Fonction {
+    id: ID!
+	titre: String!
+	description: String
+    moniteurs: [Moniteur] @belongsToMany
+}
+
+input FonctionInput {
+	titre: String
+	description: String
+}
+
+extend type Query {
+    getFonction(
+        id: ID! @eq
+    ): Fonction @find
+
+    allFonctions: [Fonction] @all
+}
+
+extend type Mutation {
+    createFonction(
+        input: FonctionInput! @spread
+    ): Fonction @create
+
+    updateFonction(
+        id: ID!
+        input: FonctionInput! @spread
+    ): Fonction @update
+
+    deleteFonction(
+        id: ID!
+    ): Fonction @delete
+}

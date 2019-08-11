@@ -1,0 +1,38 @@
+type Moniteur {
+	id: ID!
+	personne: Personne! @belongsTo
+	grade: String
+	incorporation: String
+	remarques: String
+	fonctions: [Fonction] @belongsToMany
+}
+
+input MoniteurInput {
+	personne_id: ID
+	grade: String
+	incorporation: String
+	remarques: String
+}
+
+extend type Query {
+	getMoniteur(
+		id: ID! @eq
+	): Moniteur @find
+
+	allMoniteurs: [Moniteur] @all
+}
+
+extend type Mutation {
+	createMoniteur(
+		input: MoniteurInput! @spread
+	): Moniteur @create
+
+	updateMoniteur(
+		id: ID!
+		input: MoniteurInput! @spread
+	): Moniteur @update
+
+	deleteMoniteur(
+		id: ID!
+	): Moniteur @delete
+}
