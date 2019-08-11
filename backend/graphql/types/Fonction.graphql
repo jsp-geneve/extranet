@@ -3,6 +3,8 @@ type Fonction {
 	titre: String!
 	description: String
     moniteurs: [Moniteur] @belongsToMany
+    created_at: DateTime!
+    updated_at: DateTime!
 }
 
 input FonctionInput {

@@ -5,6 +5,8 @@ type Moniteur {
 	incorporation: String
 	remarques: String
 	fonctions: [Fonction] @belongsToMany
+    created_at: DateTime!
+    updated_at: DateTime!
 }
 
 input MoniteurInput {

@@ -3,4 +3,6 @@ type Groupe {
     nomCourt: String!
     nomLong: String!
     jeunesSapeurs: [JeuneSapeur]
+    created_at: DateTime!
+    updated_at: DateTime!
 }
