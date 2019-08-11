@@ -12,6 +12,13 @@ class Moniteur extends Model
     use SoftDeletes;
 
     /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    /**
      * La personne à laquelle ce moniteur correspond.
      *
      * @return BelongsTo
