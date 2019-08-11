@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Collection;
 
 class Personne extends Model
 {
@@ -49,12 +50,26 @@ class Personne extends Model
     }
 
     /**
-     * Retourne le membre incarné par la personne.
+     * Une personne peut être un moniteur.
      *
-     * @return mixed
+     * @return HasOne
      */
-    public function membre()
+    public function moniteur(): HasOne
     {
-        return $this->jeuneSapeur ?? $this->responsableLegal;
+        return $this->hasOne('App\Moniteur');
+    }
+
+    /**
+     * Retourne le(s) membre(s) incarné(s) par la personne.
+     *
+     * @return Collection
+     */
+    public function membres(): Collection
+    {
+        return collect([
+            $this->jeuneSapeur,
+            $this->responsableLegal,
+            $this->moniteur,
+        ])->filter();
     }
 }
