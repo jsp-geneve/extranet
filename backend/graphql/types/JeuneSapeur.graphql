@@ -1,7 +1,7 @@
 type JeuneSapeur {
     id: ID!
 	personne: Personne!
-	responsablesLegaux: [Personne!]!
+	responsablesLegaux: [Personne!]! @belongsToMany
 	groupe: Groupe!
 }
 
